@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SpringHubIndia/static/css/main.ca27aedd.css",
-    "main.js": "/SpringHubIndia/static/js/main.01cdb4ca.js",
+    "main.js": "/SpringHubIndia/static/js/main.07d2405e.js",
     "static/js/453.bafbd3cb.chunk.js": "/SpringHubIndia/static/js/453.bafbd3cb.chunk.js",
     "static/media/v5.mp4": "/SpringHubIndia/static/media/v5.29ffb7ded9b93bb72b67.mp4",
     "static/media/v3.mp4": "/SpringHubIndia/static/media/v3.21442f67c1ac06c9cf6c.mp4",
@@ -53,11 +53,11 @@
     "static/media/p10.jpg": "/SpringHubIndia/static/media/p10.ae0ba76bee51208c3bf8.jpg",
     "index.html": "/SpringHubIndia/index.html",
     "main.ca27aedd.css.map": "/SpringHubIndia/static/css/main.ca27aedd.css.map",
-    "main.01cdb4ca.js.map": "/SpringHubIndia/static/js/main.01cdb4ca.js.map",
+    "main.07d2405e.js.map": "/SpringHubIndia/static/js/main.07d2405e.js.map",
     "453.bafbd3cb.chunk.js.map": "/SpringHubIndia/static/js/453.bafbd3cb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca27aedd.css",
-    "static/js/main.01cdb4ca.js"
+    "static/js/main.07d2405e.js"
   ]
 }
