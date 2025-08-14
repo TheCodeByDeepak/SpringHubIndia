@@ -39,7 +39,7 @@ export default function WhatsAppFloatingIcon() {
 
       {/* WhatsApp Icon Button */}
       <a
-        href="https://wa.me/918888444476?text=Hello%2C%20I%27d%20like%20to%20inquire%20about%20your%20services."
+        href="https://wa.me/918007431996?text=Hello%2C%20I%27d%20like%20to%20inquire%20about%20your%20services."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
