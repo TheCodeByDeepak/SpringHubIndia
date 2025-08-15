@@ -51,7 +51,7 @@ export default function Sidebar() {
               ${mobileOpen ? "left-64 bg-blue-100" : "left-1"}`}
 >
   {mobileOpen ? (
-    <X size={28} className="text-blue-600" />
+    <ChevronFirst size={28} className="text-blue-600" />
   ) : (
     <Menu size={28} className="text-orange-500" />
   )}
