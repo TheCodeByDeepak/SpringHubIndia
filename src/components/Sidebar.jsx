@@ -48,7 +48,7 @@ export default function Sidebar() {
   onClick={() => setMobileOpen(!mobileOpen)}
   className={`fixed top-2 z-50 md:hidden transition-all duration-300 flex items-center justify-center
               w-12 h-12 
-              ${mobileOpen ? "left-64 bg-blue-100" : "left-4 bg-white"}`}
+              ${mobileOpen ? "left-64 bg-blue-100" : "left-1"}`}
 >
   {mobileOpen ? (
     <X size={28} className="text-blue-600" />
@@ -56,12 +56,6 @@ export default function Sidebar() {
     <Menu size={28} className="text-orange-500" />
   )}
 </button>
-
-
-
-
-
-
 
 
       {/* ✅ Sidebar */}

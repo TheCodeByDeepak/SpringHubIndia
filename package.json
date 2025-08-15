@@ -2,7 +2,7 @@
   "name": "spring-hub-india",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://TheCodeByDeepak.github.io/SpringHubIndia",
+  "homepage": "https://springhubindia.com",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@testing-library/dom": "^10.4.1",

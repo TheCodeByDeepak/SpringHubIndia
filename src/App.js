@@ -5,11 +5,11 @@ import WhatsAppFloatingIcon from "./components/WhatsAppButton";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Manufacturing from "./pages/Manufacturing";
-import IndustriesServed from "./pages/Industries Served";
+import IndustriesServed from "./pages/IndustriesServed";
 import Gallary from "./pages/Gallary";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import GetQuote from "./pages/Get a Quote";
+import GetQuote from "./pages/GetQuote";
 import NotFound from "./pages/NotFound";
 
 // Product detail pages
@@ -21,12 +21,12 @@ import CompressionSpringPage from "./pages/CompressionSpringPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
         <Route element={<Sidebar />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          
+
           {/* Product details routes */}
           <Route path="/products/torsion" element={<TorsionSpringPage />} />
           <Route path="/products/wireform" element={<WireFormPage />} />
