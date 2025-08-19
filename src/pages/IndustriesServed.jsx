@@ -22,14 +22,14 @@ import HealthcareImg from "../assets/Healthcare.png";
 import EducationImg from "../assets/Education.png";
 import headerBg from "../assets/b3.jpg";
 // Left side images
-import leftImg1 from "../assets/h2.png";
-import leftImg2 from "../assets/h9.png";
+import leftImg1 from "../assets/h9.png";
+import leftImg2 from "../assets/h2.png";
 import leftImg3 from "../assets/h7.png";
 
 // Right side images
 import rightImg1 from "../assets/h6.png";
-import rightImg2 from "../assets/h1.png";
-import rightImg3 from "../assets/h4.png";
+import rightImg2 from "../assets/h4.png";
+import rightImg3 from "../assets/h1.png";
 
 const industries = [
   {
@@ -121,10 +121,10 @@ export default function IndustriesServed() {
   {/* ✅ Desktop Background Images in a zigzag line */}
   <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
     <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
-    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
-    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
-    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
-    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-16" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-20" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-16" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-12" />
     <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
   </div>
 

@@ -47,13 +47,29 @@ const Home = () => {
   ];
 
   const [current, setCurrent] = useState(0);
+const [isTransitioning, setIsTransitioning] = useState(true);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3000); // auto-slide every 3 sec
-    return () => clearInterval(interval);
-  }, []);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => prev + 1);
+    setIsTransitioning(true);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
+useEffect(() => {
+  // If we reached the cloned last slide, reset without animation
+  if (current === slides.length) {
+    const timeout = setTimeout(() => {
+      setIsTransitioning(false);
+      setCurrent(0);
+    }, 700); // should match transition duration (700ms above)
+
+    return () => clearTimeout(timeout);
+  }
+}, [current, slides.length]);
+
 
   // ✅ Products Array (your existing code)
   const products = [
@@ -76,38 +92,35 @@ const Home = () => {
     <section className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans -ml-2 -mr-2 -mt-2">
      <div className="relative overflow-hidden h-[60vh] bg-blue-900 text-white -mt-6 -ml-4 -mr-4">
       {/* Slider container */}
-      <div
-        className="flex transition-transform duration-700 ease-in-out h-full"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full flex-shrink-0 relative h-full flex items-center justify-center"
-          >
-            {/* Background image */}
-            <img
-              src={slide.img}
-              alt="slide"
-              className="absolute inset-0 w-full h-full object-cover opacity-50"
-            />
-            {/* Text */}
-            <div className="relative z-10 max-w-4xl px-6 text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                {slide.title}
-              </h1>
-              <p className="max-w-2xl mx-auto text-lg mb-6">{slide.desc}</p>
-              <Link
-                to="/contact"
-                onClick={() => window.scrollTo(0, 0)}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold inline-flex items-center"
-              >
-                Get in Touch <FaArrowRight className="ml-2" />
-              </Link>
-            </div>
-          </div>
-        ))}
+    <div
+  className={`flex h-full ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
+  style={{ transform: `translateX(-${current * 100}%)` }}
+>
+  {[...slides, slides[0]].map((slide, index) => (
+    <div
+      key={index}
+      className="w-full flex-shrink-0 relative h-full flex items-center justify-center"
+    >
+      <img
+        src={slide.img}
+        alt="slide"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+      <div className="relative z-10 max-w-4xl px-6 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h1>
+        <p className="max-w-2xl mx-auto text-lg mb-6">{slide.desc}</p>
+        <Link
+          to="/contact"
+          onClick={() => window.scrollTo(0, 0)}
+          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold inline-flex items-center"
+        >
+          Get in Touch <FaArrowRight className="ml-2" />
+        </Link>
       </div>
+    </div>
+  ))}
+</div>
+
 
       {/* ✅ Dots indicator */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">

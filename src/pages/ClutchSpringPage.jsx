@@ -5,14 +5,14 @@ import clutchSpringImg2 from "../assets/p45.jpg";
 import headerBg from "../assets/b1.jpg";
 
 // Left side images
-import leftImg1 from "../assets/h8.png";
+import leftImg1 from "../assets/h1.png";
 import leftImg2 from "../assets/h2.png";
-import leftImg3 from "../assets/h1.png";
+import leftImg3 from "../assets/h8.png";
 
 // Right side images
 import rightImg1 from "../assets/h3.png";
-import rightImg2 from "../assets/h4.png";
-import rightImg3 from "../assets/h5.png";
+import rightImg2 from "../assets/h5.png";
+import rightImg3 from "../assets/h4.png";
 
 export default function ClutchSpring() {
   return (
@@ -30,11 +30,11 @@ export default function ClutchSpring() {
   {/* ✅ Desktop Background Images in a zigzag line */}
   <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
     <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
-    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
-    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
-    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
-    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
-    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-24" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-24" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-24" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-28" />
+    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-12" />
   </div>
 
   {/* ✅ Desktop Heading */}

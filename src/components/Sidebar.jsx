@@ -43,7 +43,7 @@ export default function Sidebar() {
         onClick={() => setMobileOpen(!mobileOpen)}
         className={`fixed top-4  z-50 md:hidden transition-all duration-300 flex items-center justify-center
               w-12 h-12 
-              ${mobileOpen ? "left-64 bg-blue-100" : "left-4 bg-white"}`}
+              ${mobileOpen ? "left-64 bg-blue-100" : "left-4 -ml-2"}`}
       >
         {mobileOpen ? (
           <ChevronFirst size={33} className="text-blue-600" />
@@ -64,18 +64,38 @@ export default function Sidebar() {
         <nav className="h-full flex flex-col justify-between">
           {/* ✅ Logo Section */}
 <div className="p-4 flex flex-col items-center">
-  <img src={logo} className="w-11 mb-2" alt="Logo" />
-  
-  {/* Mobile brand name (below logo) */}
-  <span className="text-base font-semibold text-blue-800 block md:hidden text-center -mt-2">
-    Spring Hub India
-  </span>
+  {/* Mobile: logo + name side by side */}
+  <div className="flex items-center justify-center md:hidden">
+    <Link 
+      to="/" 
+      onClick={() => {
+        setMobileOpen(false); 
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+      className="flex items-center"
+    >
+      <img src={logo} className="w-11 h-11" alt="Logo" />
+      <span className="ml-2 text-base font-semibold text-blue-800">
+        SPRING HUB INDIA
+      </span>
+    </Link>
+  </div>
 
-  {/* Desktop brand name (still visible in sidebar header/footer) */}
-  <span className="text-lg font-semibold text-blue-800 hidden md:block text-center -mt-2">
-    Spring Hub India
-  </span>
+  {/* Desktop: logo above name */}
+  <div className="hidden md:flex flex-col items-center">
+    <Link 
+      to="/" 
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="flex flex-col items-center"
+    >
+      <img src={logo} className="w-11 h-11 mb-2" alt="Logo" />
+      <span className="text-lg font-semibold text-blue-800 text-center">
+        SPRING HUB INDIA
+      </span>
+    </Link>
+  </div>
 </div>
+
 
 
 
@@ -97,21 +117,29 @@ export default function Sidebar() {
 
 {/* ✅ Footer Section */}
 <div className="border-t p-4 flex flex-col items-center space-y-4">
-  {/* ✅ Footer Logo + Brand Info */}
-  <div className="flex flex-col items-center">
+{/* ✅ Footer Logo + Brand Info */}
+<div className="flex flex-col items-center">
+  <Link 
+    to="/" 
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
+    className="flex flex-col items-center"
+  >
     <img src={logo} alt="Footer Logo" className="w-11 h-11 rounded-md mb-2" />
-    <div className="leading-5 text-center">
-      <h4 className="font-semibold text-blue-800 -mt-1 text-lg">Spring Hub India</h4>
-      <p className="text-gray-600 text-mm mb-2">
-        <a
-          href="mailto:info@springhubindia.com"
-          className="text-blue-700 hover:text-orange-500 transition"
-        >
-          info@springhubindia.com
-        </a>
-      </p>
-    </div>
-  </div>
+    <h4 className="font-semibold text-blue-800 -mt-1 text-lg">
+      SPRING HUB INDIA
+    </h4>
+  </Link>
+
+  <p className="text-gray-600 text-mm mb-2">
+    <a
+      href="mailto:info@springhubindia.com"
+      className="text-blue-700 hover:text-orange-500 transition"
+    >
+      info@springhubindia.com
+    </a>
+  </p>
+</div>
+
 
 {/* ✅ Social Media Icons */}
 <div className="flex justify-center items-center space-x-4">

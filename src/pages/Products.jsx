@@ -111,17 +111,17 @@ export default function ProductsPage() {
   {/* ✅ Desktop Background Images in a zigzag line */}
   <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
     <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
-    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
-    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-8" />
-    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
-    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-0" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-16" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-20" />
+    <img src={leftImg3} alt="Decorative" className="w-32 h-32 object-contain -translate-y-12" />
     <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
   </div>
 
   {/* ✅ Desktop Heading (only visible on md and above) */}
   <div className="hidden md:block relative max-w-6xl mx-auto px-6 py-20 text-center">
     <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">
-      Our Product Range
+      Our Product
     </h1>
     <p className="text-lg mb-0 text-white">
       Discover our premium range of springs and wire forms, engineered for precision, durability, and performance.
@@ -131,7 +131,7 @@ export default function ProductsPage() {
   {/* ✅ Mobile Heading */}
   <div className="md:hidden text-center relative px-6 py-6">
     <h1 className="text-4xl font-bold mb-4 text-white">
-      Our Product Range
+      Our Product
     </h1>
     <p className="text-lg mb-6 text-white">
       Discover our premium range of springs and wire forms, engineered for precision, durability, and performance.
