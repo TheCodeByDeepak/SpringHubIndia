@@ -136,16 +136,26 @@ const About = () => {
       </motion.p>
 
       {/* CEO Message */}
-      <div className="bg-white shadow-md rounded-xl p-8 mb-12 ml-20 mr-20 max-w-6xl mx-auto flex flex-col sm:flex-row items-center">
-        <img src={founderImg} alt="Founder" className="w-32 h-32 rounded-full object-cover mb-4 sm:mb-0 sm:mr-8" />
-        <div>
-          <h3 className="text-2xl font-bold text-blue-800 mb-2">Message from the C.E.O</h3>
-          <p className="text-gray-700 text-base italic mb-2">
-            "We believe in engineering excellence, innovation, and customer satisfaction as the foundation of our success."
-          </p>
-          <p className="text-base font-semibold text-orange-500">– <span className="text-blue-800">Shailesh Yadav</span>, C.E.O</p>
-        </div>
-      </div>
+     <div className="bg-white shadow-md rounded-xl p-6 sm:p-8 mb-12 
+                mx-4 sm:mx-8 md:mx-20 max-w-6xl flex flex-col sm:flex-row items-center">
+  <img 
+    src={founderImg} 
+    alt="Founder" 
+    className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-4 sm:mb-0 sm:mr-8" 
+  />
+  <div>
+    <h3 className="text-xl sm:text-2xl font-bold text-blue-800 mb-2">
+      Message from the C.E.O
+    </h3>
+    <p className="text-gray-700 text-sm sm:text-base italic mb-2">
+      "We believe in engineering excellence, innovation, and customer satisfaction as the foundation of our success."
+    </p>
+    <p className="text-sm sm:text-base font-semibold text-orange-500">
+      – <span className="text-blue-800">Shailesh Yadav</span>, C.E.O
+    </p>
+  </div>
+</div>
+
 
       {/* Company Info */}
       <div className="bg-white shadow-md rounded-xl p-8 mb-12 w-full max-w-6xl mx-auto">
