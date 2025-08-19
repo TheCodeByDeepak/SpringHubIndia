@@ -1,22 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import extensionSpringImg from "../assets/e1.jpg"; 
-import extensionSpringImg2 from "../assets/e2.jpg";
+import extensionSpringImg from "../assets/p50.jpg"; 
+import extensionSpringImg2 from "../assets/p51.jpg";
+import g1 from "../assets/p6.jpg"; 
+import g2 from "../assets/p15.jpg"; 
+import g3 from "../assets/p16.jpg"; 
+
+// Left side images
+import leftImg1 from "../assets/h1.png";
+import leftImg2 from "../assets/h2.png";
+import leftImg3 from "../assets/h3.png";
+
+// Right side images
+import rightImg1 from "../assets/h4.png";
+import rightImg2 from "../assets/h5.png";
+import rightImg3 from "../assets/h6.png";
 
 export default function ExtensionSpring() {
   return (
     <div className="w-full px-4 md:px-12 py-12 bg-gradient-to-b from-gray-50 to-blue-50">
 
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <h1 className="text-3xl font-bold text-blue-800">
-          Precision Extension Springs
-        </h1>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Engineered to provide reliable tension and controlled return force, our extension springs 
-          excel in performance, durability, and consistency across a wide range of industrial and commercial applications.
-        </p>
-      </div>
+     {/* Precision Extension Springs Hero Section */}
+<div className="relative bg-blue-900 text-white mb-10 overflow-hidden">
+  {/* ✅ Mobile Background */}
+  <img
+    src={headerBg}
+    alt="Header Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
+  />
+
+  {/* ✅ Desktop Background Images in a zigzag line */}
+  <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
+    <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
+  </div>
+
+  {/* ✅ Desktop Heading */}
+  <div className="hidden md:block relative max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Precision Extension Springs
+    </h1>
+    <p className="max-w-3xl mx-auto text-lg mb-6 text-white">
+      Engineered to provide reliable tension and controlled return force, our extension springs 
+      excel in performance, durability, and consistency across a wide range of industrial and commercial applications.
+    </p>
+  </div>
+
+  {/* ✅ Mobile Heading */}
+  <div className="md:hidden text-center relative px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Precision Extension Springs
+    </h1>
+    <p className="max-w-3xl mx-auto text-lg mb-6 text-white">
+      Engineered to provide reliable tension and controlled return force, our extension springs 
+      excel in performance, durability, and consistency across a wide range of industrial and commercial applications.
+    </p>
+  </div>
+</div>
+
 
       {/* Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
@@ -101,6 +146,25 @@ export default function ExtensionSpring() {
           </div>
         </div>
       </div>
+
+       {/* Additional Torsion Spring Images */}
+<div className="my-16 text-center">
+  <h3 className="text-3xl font-bold text-blue-800 mb-8">
+    Extension Spring Gallery
+  </h3>
+
+  <div className="flex flex-wrap justify-center gap-6">
+    {[g1, g2, g3, /* add more images here */].map((img, i) => (
+      <div key={i} className="rounded-xl shadow overflow-hidden w-56">
+        <img
+          src={img}
+          alt={`Torsion Spring ${i + 1}`}
+          className="w-full h-56 object-cover"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
       {/* Call to Action */}
       <div className="text-center">

@@ -2,21 +2,68 @@ import React from "react";
 import { Link } from "react-router-dom";
 import conicalSpringImg from "../assets/c1.jpg"; 
 import conicalSpringImg2 from "../assets/c2.jpg";
+import g2 from "../assets/p30.jpg";
+import g3 from "../assets/p31.jpg";
+import g4 from "../assets/p32.jpg";
+import g5 from "../assets/p33.jpg";
+import headerBg from "../assets/b3.jpg";
+
+// Left side images
+import leftImg1 from "../assets/h10.png";
+import leftImg2 from "../assets/h8.png";
+import leftImg3 from "../assets/h6.png";
+
+// Right side images
+import rightImg1 from "../assets/h2.png";
+import rightImg2 from "../assets/h5.png";
+import rightImg3 from "../assets/h1.png";
 
 export default function ConicalSpring() {
   return (
-    <div className="w-full px-4 md:px-12 py-12 bg-gradient-to-b from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans -ml-2 -mr-2 -mt-2">
 
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <h1 className="text-3xl font-bold text-blue-800">
-          Conical Compression Springs
-        </h1>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Engineered for compact design, efficient load handling, and high stability, 
-          our conical springs deliver superior performance across diverse industrial applications.
-        </p>
-      </div>
+      {/* Conical Compression Springs Hero Section */}
+<div className="relative bg-blue-900 text-white mb-10 overflow-hidden -mt-6 -ml-4 -mr-4">
+  {/* ✅ Mobile Background */}
+  <img
+    src={headerBg}
+    alt="Header Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
+  />
+
+  {/* ✅ Desktop Background Images in a zigzag line */}
+  <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
+    <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
+  </div>
+
+  {/* ✅ Desktop Heading */}
+  <div className="hidden md:block relative max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Conical Springs
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      Engineered for compact design, efficient load handling, and high stability, 
+      our conical springs deliver superior performance across diverse industrial applications.
+    </p>
+  </div>
+
+  {/* ✅ Mobile Heading */}
+  <div className="md:hidden text-center relative px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Conical Springs
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      Engineered for compact design, efficient load handling, and high stability, 
+      our conical springs deliver superior performance across diverse industrial applications.
+    </p>
+  </div>
+</div>
+
 
       {/* Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
@@ -102,6 +149,25 @@ export default function ConicalSpring() {
           </div>
         </div>
       </div>
+
+       {/* Additional Torsion Spring Images */}
+<div className="my-16 text-center">
+  <h3 className="text-3xl font-bold text-blue-800 mb-8">
+    Conical Spring Gallery
+  </h3>
+
+  <div className="flex flex-wrap justify-center gap-6">
+    {[g2, g3, g4, g5 /* add more images here */].map((img, i) => (
+      <div key={i} className="rounded-xl shadow overflow-hidden w-56">
+        <img
+          src={img}
+          alt={`Torsion Spring ${i + 1}`}
+          className="w-full h-56 object-cover"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
       {/* Call to Action */}
       <div className="text-center">

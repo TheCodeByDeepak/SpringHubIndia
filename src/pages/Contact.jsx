@@ -5,8 +5,17 @@ import {
   MapPin,
   Clock,
   User,
-  Users,
 } from "lucide-react";
+import headerBg from "../assets/b7.jpg";
+// Left side images
+import leftImg1 from "../assets/h10.png";
+import leftImg2 from "../assets/h9.png";
+import leftImg3 from "../assets/h8.png";
+
+// Right side images
+import rightImg1 from "../assets/h7.png";
+import rightImg2 from "../assets/h6.png";
+import rightImg3 from "../assets/h5.png";
 
 const ContactUs = () => {
   const form = useRef();
@@ -35,13 +44,47 @@ const ContactUs = () => {
   
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-16 py-12 bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans">
-      <div className="text-center mb-14">
-        <h1 className="text-3xl font-bold text-blue-800">Contact Us</h1>
-        <p className="text-lg text-gray-700">
-          We’re here to help. Reach out anytime.
-        </p>
-      </div>
+    <section className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans -ml-2 -mr-2 -mt-2">
+     {/* Contact Us Section */}
+<div className="relative bg-blue-900 text-white mb-10 overflow-hidden -mt-6 -ml-4 -mr-4">
+  {/* ✅ Mobile Background */}
+  <img
+    src={headerBg}
+    alt="Header Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
+  />
+
+  {/* ✅ Desktop Background Images in a zigzag line */}
+  <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
+    <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
+  </div>
+
+  {/* ✅ Desktop Heading (only visible on md and above) */}
+  <div className="hidden md:block relative max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Contact Us
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      We’re here to help. Reach out anytime.
+    </p>
+  </div>
+
+  {/* ✅ Mobile Heading */}
+  <div className="md:hidden text-center relative px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Contact Us
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      We’re here to help. Reach out anytime.
+    </p>
+  </div>
+</div>
+
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Info */}
@@ -52,18 +95,14 @@ const ContactUs = () => {
               {
                 icon: <User className="mx-auto text-blue-600 mb-2" />,
                 name: " Shailesh Yadav",
-                role: "Founder",
+                role: "Director",
               },
               {
                 icon: <User className="mx-auto text-green-600 mb-2" />,
                 name: "Sanjay Yadav",
-                role: "Production Manager",
+                role: "Production & Quality Manager",
               },
-              {
-                icon: <Users className="mx-auto text-purple-600 mb-2" />,
-                name: "Sanjay Yadav ",
-                role: "Quality Head",
-              },
+             
             ].map((person, idx) => (
               <div
                 key={idx}
@@ -102,14 +141,19 @@ const ContactUs = () => {
               title="Contact"
               text={
                 <>
-                  <span>
-                    <a href="tel:+918007431996" className="hover:underline">
-                      +91 8007431996
-                    </a>
-                  </span>
-                 
-                  
-                </>
+  <span>
+    <a href="tel:+918007431996" className="hover:underline">
+      +91 8007431996
+    </a>
+  </span>
+  <br />
+  <span>
+    <a href="tel:+918127516770" className="hover:underline">
+      +91 8127516770
+    </a>
+  </span>
+</>
+
               }
               color="text-green-600"
             />
@@ -143,54 +187,63 @@ const ContactUs = () => {
 
         {/* Message Form */}
         <div className="bg-white border rounded-xl shadow p-6">
-          <h3 className="text-2xl font-bold text-blue-800 mb-6">Send a Message</h3>
-          <form ref={form} onSubmit={handleFormSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="user_name"
-              placeholder="Your Name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-            <input
-              type="email"
-              name="user_email"
-              placeholder="Your Email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="4"
-              className="w-full px-4 py-2 border rounded-lg resize focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            ></textarea>
+  <h3 className="text-2xl font-bold text-blue-800 mb-6">Send a Message</h3>
+  <form ref={form} onSubmit={handleFormSubmit} className="space-y-4">
+    <input
+      type="text"
+      name="user_name"
+      placeholder="Your Name"
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    />
+    <input
+      type="email"
+      name="user_email"
+      placeholder="Your Email"
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    />
+    {/* ✅ City Textbox */}
+    <input
+      type="text"
+      name="user_city"
+      placeholder="Your City"
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    />
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      rows="4"
+      className="w-full px-4 py-2 border rounded-lg resize focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    ></textarea>
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`w-full flex items-center justify-center gap-2 ${
-                isLoading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-              } text-white px-6 py-2 rounded-lg transition`}
-            >
-              {isLoading && (
-                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-              )}
-              {isLoading ? "Sending..." : "Send Message"}
-            </button>
+    <button
+      type="submit"
+      disabled={isLoading}
+      className={`w-full flex items-center justify-center gap-2 ${
+        isLoading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+      } text-white px-6 py-2 rounded-lg transition`}
+    >
+      {isLoading && (
+        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+      )}
+      {isLoading ? "Sending..." : "Send Message"}
+    </button>
 
-            {statusMessage && (
-              <p
-                className={`text-sm mt-3 font-medium ${
-                  statusMessage.type === "success" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {statusMessage.text}
-              </p>
-            )}
-          </form>
-        </div>
+    {statusMessage && (
+      <p
+        className={`text-sm mt-3 font-medium ${
+          statusMessage.type === "success" ? "text-green-600" : "text-red-600"
+        }`}
+      >
+        {statusMessage.text}
+      </p>
+    )}
+  </form>
+</div>
+
       </div>
 
       {/* Google Map */}

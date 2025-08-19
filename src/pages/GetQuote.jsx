@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Phone, Mail, Clock, ChevronDown, ChevronUp } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import headerBg from "../assets/b9.jpg";
+// Left side images
+import leftImg1 from "../assets/h6.png";
+import leftImg2 from "../assets/h5.png";
+import leftImg3 from "../assets/h3.png";
+
+// Right side images
+import rightImg1 from "../assets/h8.png";
+import rightImg2 from "../assets/h6.png";
+import rightImg3 from "../assets/h2.png";
 
 export default function GetAQuote() {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -67,14 +77,47 @@ export default function GetAQuote() {
   ];
 
   return (
-    <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-16 py-12 bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans">
-      {/* Title */}
-      <div className="text-center mb-14">
-        <h1 className="text-3xl font-bold text-blue-800">Get a Quote</h1>
-        <p className="text-lg text-gray-700">
-          Fast, reliable, and always available. Let’s get you started.
-        </p>
-      </div>
+    <section className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans -ml-2 -mr-2 -mt-2">
+      {/* Get a Quote Section */}
+<div className="relative bg-blue-900 text-white mb-10 overflow-hidden -mt-6 -ml-4 -mr-4">
+  {/* ✅ Mobile Background */}
+  <img
+    src={headerBg}
+    alt="Header Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 md:hidden"
+  />
+
+  {/* ✅ Desktop Background Images in a zigzag line */}
+  <div className="hidden md:flex absolute inset-0 items-center justify-center gap-6 opacity-80 pointer-events-none">
+    <img src={leftImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-6" />
+    <img src={leftImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-4" />
+    <img src={rightImg1} alt="Decorative" className="w-40 h-40 object-contain -translate-y-2" />
+    <img src={rightImg2} alt="Decorative" className="w-40 h-40 object-contain translate-y-6" />
+    <img src={leftImg3} alt="Decorative" className="w-40 h-40 object-contain -translate-y-4" />
+    <img src={rightImg3} alt="Decorative" className="w-40 h-40 object-contain translate-y-2" />
+  </div>
+
+  {/* ✅ Desktop Heading (only visible on md and above) */}
+  <div className="hidden md:block relative max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Get a Quote
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      Fast, reliable, and always available. Let’s get you started.
+    </p>
+  </div>
+
+  {/* ✅ Mobile Heading */}
+  <div className="md:hidden text-center relative px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Get a Quote
+    </h1>
+    <p className="max-w-2xl mx-auto text-lg mb-6 text-white">
+      Fast, reliable, and always available. Let’s get you started.
+    </p>
+  </div>
+</div>
+
 
       {/* Grid Layout */}
       <div className="grid lg:grid-cols-2 gap-12">
@@ -83,25 +126,45 @@ export default function GetAQuote() {
           {/* Contact Options */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <Phone className="text-orange-500" />
-              <a
-                href="tel:+918007431996"
-                className="text-lg font-medium hover:underline"
-              >
-                Call: +91 80074 31996
-              </a>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaWhatsapp className="text-green-600 text-2xl" />
-              <a
-                href="https://wa.me/918007431996"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-medium hover:underline"
-              >
-                WhatsApp: +91 80074 31996
-              </a>
-            </div>
+  <Phone className="text-orange-500" />
+  <div className="flex flex-col">
+    <a
+      href="tel:+918007431996"
+      className="text-lg font-medium hover:underline"
+    >
+      Call: +91 80074 31996
+    </a>
+    <a
+      href="tel:+918127516770"
+      className="text-lg font-medium hover:underline"
+    >
+      Call: +91 81275 16770
+    </a>
+  </div>
+</div>
+
+<div className="flex items-center gap-4">
+  <FaWhatsapp className="text-green-600 text-2xl" />
+  <div className="flex flex-col">
+    <a
+      href="https://wa.me/918007431996"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-lg font-medium hover:underline"
+    >
+      WhatsApp: +91 80074 31996
+    </a>
+    <a
+      href="https://wa.me/918127516770"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-lg font-medium hover:underline"
+    >
+      WhatsApp: +91 81275 16770
+    </a>
+  </div>
+</div>
+
             <div className="flex items-center gap-4">
               <Mail className="text-blue-600" />
               <a
@@ -140,10 +203,7 @@ export default function GetAQuote() {
                   title: "Bulk Manufacturing",
                   desc: "Scalable production for large orders with quality assurance."
                 },
-                {
-                  title: "ISO Certified QA",
-                  desc: "Precision tested with ISO standards and batch-wise documentation."
-                }
+               
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col h-full">
                   <h4 className="text-lg font-semibold text-blue-800">
@@ -162,7 +222,7 @@ export default function GetAQuote() {
               <p className="text-gray-600 text-sm">Quotes Served</p>
             </div>
             <div className="bg-white border shadow px-6 py-3 rounded-lg text-center w-full h-full">
-              <p className="text-2xl font-bold text-blue-700">98%</p>
+              <p className="text-2xl font-bold text-blue-700">100%</p>
               <p className="text-gray-600 text-sm">Customer Satisfaction</p>
             </div>
             <div className="bg-white border shadow px-6 py-3 rounded-lg text-center w-full h-full col-span-full sm:col-span-1">
@@ -177,18 +237,12 @@ export default function GetAQuote() {
               Our Certifications
             </h3>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-white border shadow px-6 py-3 rounded-lg text-center w-full h-full">
-                <p className="text-2xl font-bold text-blue-700">ISO</p>
-                <p className="text-gray-600 text-sm">Quality Certified</p>
-              </div>
+              
               <div className="bg-white border shadow px-6 py-3 rounded-lg text-center w-full h-full">
                 <p className="text-2xl font-bold text-blue-700">MSME</p>
                 <p className="text-gray-600 text-sm">Govt. Registered</p>
               </div>
-              <div className="bg-white border shadow px-6 py-3 rounded-lg text-center w-full h-full col-span-full sm:col-span-1">
-                <p className="text-2xl font-bold text-blue-700">RoHS</p>
-                <p className="text-gray-600 text-sm">Eco Compliant</p>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -196,83 +250,107 @@ export default function GetAQuote() {
         {/* Right Column */}
         <div className="space-y-10">
           {/* Get a Quote Form */}
-          <div className="bg-white p-6 rounded-xl shadow border">
-            <h3 className="text-2xl font-bold text-blue-800 mb-4">
-              Request a Quote
-            </h3>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  errors.name
-                    ? "border-red-500 focus:ring-red-500"
-                    : "focus:ring-blue-500"
-                }`}
-              />
-              {errors.name && (
-                <p className="text-red-600 text-sm">{errors.name}</p>
-              )}
+         <div className="bg-white p-6 rounded-xl shadow border">
+  <h3 className="text-2xl font-bold text-blue-800 mb-4">
+    Request a Quote
+  </h3>
+  <form className="space-y-4" onSubmit={handleSubmit}>
+    {/* Name */}
+    <input
+      type="text"
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+      placeholder="Your Name"
+      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+        errors.name
+          ? "border-red-500 focus:ring-red-500"
+          : "focus:ring-blue-500"
+      }`}
+    />
+    {errors.name && (
+      <p className="text-red-600 text-sm">{errors.name}</p>
+    )}
 
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  errors.email
-                    ? "border-red-500 focus:ring-red-500"
-                    : "focus:ring-blue-500"
-                }`}
-              />
-              {errors.email && (
-                <p className="text-red-600 text-sm">{errors.email}</p>
-              )}
+    {/* Company Name */}
+    <input
+      type="text"
+      name="company"
+      value={formData.company}
+      onChange={handleChange}
+      placeholder="Company Name"
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
 
-              <input
-                type="text"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                placeholder="Service Needed"
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  errors.service
-                    ? "border-red-500 focus:ring-red-500"
-                    : "focus:ring-blue-500"
-                }`}
-              />
-              {errors.service && (
-                <p className="text-red-600 text-sm">{errors.service}</p>
-              )}
+    {/* Email */}
+    <input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+      placeholder="Your Email"
+      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+        errors.email
+          ? "border-red-500 focus:ring-red-500"
+          : "focus:ring-blue-500"
+      }`}
+    />
+    {errors.email && (
+      <p className="text-red-600 text-sm">{errors.email}</p>
+    )}
 
-              <textarea
-                name="details"
-                value={formData.details}
-                onChange={handleChange}
-                placeholder="Additional Details"
-                rows={3}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
+    {/* City */}
+    <input
+      type="text"
+      name="city"
+      value={formData.city}
+      onChange={handleChange}
+      placeholder="City"
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
 
-              {/* ✅ Success Message */}
-              {showSuccess && (
-                <div className="text-green-700 px-4 py-2 font-medium">
-                  Request submitted successfully!
-                </div>
-              )}
+    {/* Product */}
+    <input
+      type="text"
+      name="service"
+      value={formData.service}
+      onChange={handleChange}
+      placeholder="Product Name"
+      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+        errors.service
+          ? "border-red-500 focus:ring-red-500"
+          : "focus:ring-blue-500"
+      }`}
+    />
+    {errors.service && (
+      <p className="text-red-600 text-sm">{errors.service}</p>
+    )}
 
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
-              >
-                Submit Request
-              </button>
-            </form>
-          </div>
+    {/* Details */}
+    <textarea
+      name="details"
+      value={formData.details}
+      onChange={handleChange}
+      placeholder="Additional Details"
+      rows={3}
+      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    ></textarea>
+
+    {/* ✅ Success Message */}
+    {showSuccess && (
+      <div className="text-green-700 px-4 py-2 font-medium">
+        Request submitted successfully!
+      </div>
+    )}
+
+    <button
+      type="submit"
+      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
+    >
+      Submit Request
+    </button>
+  </form>
+</div>
 
           {/* FAQs */}
           <div className="bg-orange-50 p-6 rounded-xl shadow">

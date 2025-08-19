@@ -15,9 +15,14 @@ import NotFound from "./pages/NotFound";
 // Product detail pages
 import TorsionSpringPage from "./pages/TorsionSpringPage";
 import WireFormPage from "./pages/WireFormPage";
-import ExtensionSpringPage from "./pages/ExtensionSpringPage";
 import ConicalSpringPage from "./pages/ConicalSpringPage";
 import CompressionSpringPage from "./pages/CompressionSpringPage";
+import TensionSpringPage from "./pages/TensionSpringPage";
+import SheetMetalPage from "./pages/SheetMetalPage";
+import ClutchSpringPage from "./pages/ClutchSpringPage";
+import GarterSpringPage from "./pages/GarterSpringPage";
+import SpiralSpringPage from "./pages/SpiralSpringPage";
+
 
 function App() {
   return (
@@ -30,9 +35,13 @@ function App() {
           {/* Product details routes */}
           <Route path="/products/torsion" element={<TorsionSpringPage />} />
           <Route path="/products/wireform" element={<WireFormPage />} />
-          <Route path="/products/extension" element={<ExtensionSpringPage />} />
           <Route path="/products/conical" element={<ConicalSpringPage />} />
           <Route path="/products/compression" element={<CompressionSpringPage />} />
+          <Route path="/products/tension" element={<TensionSpringPage />} />
+          <Route path="/products/sheetmetal" element={<SheetMetalPage />} />
+          <Route path="/products/clutch" element={<ClutchSpringPage />} />
+          <Route path="/products/garter" element={<GarterSpringPage />} />
+          <Route path="/products/spiral" element={<SpiralSpringPage />} />
 
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/industries-served" element={<IndustriesServed />} />

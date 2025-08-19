@@ -1,6 +1,4 @@
 import {
-  ChevronLast,
-  ChevronFirst,
   Home as HomeIcon,
   Info,
   Factory,
@@ -8,24 +6,22 @@ import {
   Images,
   Phone,
   FileText,
-  Package
+  Package,
+  ChevronFirst,
+  Menu
 } from "lucide-react";
-import { Menu, X } from "lucide-react";
 import { Outlet } from "react-router-dom";
 import { useContext, useRef, createContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaFacebookF , FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from "../assets/logo.png";
 import Header from "./Header";
 import Footer from "./Footer";
 
-
-
 const SidebarContext = createContext();
 
 export default function Sidebar() {
-  const [expanded, setExpanded] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
@@ -42,51 +38,50 @@ export default function Sidebar() {
 
   return (
     <>
-
-{/* ✅ Mobile Toggle Button */}
-<button
-  onClick={() => setMobileOpen(!mobileOpen)}
-  className={`fixed top-2 z-50 md:hidden transition-all duration-300 flex items-center justify-center
+      {/* ✅ Mobile Toggle Button */}
+      <button
+        onClick={() => setMobileOpen(!mobileOpen)}
+        className={`fixed top-4  z-50 md:hidden transition-all duration-300 flex items-center justify-center
               w-12 h-12 
-              ${mobileOpen ? "left-64 bg-blue-100" : "left-1"}`}
->
-  {mobileOpen ? (
-    <ChevronFirst size={28} className="text-blue-600" />
-  ) : (
-    <Menu size={28} className="text-orange-500" />
-  )}
-</button>
-
+              ${mobileOpen ? "left-64 bg-blue-100" : "left-4 bg-white"}`}
+      >
+        {mobileOpen ? (
+          <ChevronFirst size={33} className="text-blue-600" />
+        ) : (
+          <Menu size={33} className="text-orange-500" />
+        )}
+      </button>
 
       {/* ✅ Sidebar */}
       <aside
-  className={`
-    bg-white border-r border-gray-200 shadow-lg transition-all duration-300 z-40
-    fixed top-0 left-0 h-full md:h-screen md:fixed
-    ${mobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
-    ${mobileOpen ? "w-64" : ""}
-    ${expanded ? "md:w-64" : "md:w-20"}
-  `}
-   >
-    
-
+        className={`
+          bg-white border-r border-gray-200 shadow-lg transition-all duration-300 z-40
+          fixed top-0 left-0 h-full md:h-screen md:fixed
+          ${mobileOpen ? "translate-x-0 w-64" : "-translate-x-full"}
+          md:translate-x-0 md:w-64
+        `}
+      >
         <nav className="h-full flex flex-col justify-between">
           {/* ✅ Logo Section */}
-          <div className="p-4 flex items-center">
-            <img src={logo} className="w-14" alt="Logo" />
-            <span
-              className={`ml-3 text-lg font-semibold text-blue-800 transition-opacity duration-300 ${
-                expanded || mobileOpen ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Spring Hub India
-            </span>
-          </div>
+<div className="p-4 flex flex-col items-center">
+  <img src={logo} className="w-11 mb-2" alt="Logo" />
+  
+  {/* Mobile brand name (below logo) */}
+  <span className="text-base font-semibold text-blue-800 block md:hidden text-center -mt-2">
+    Spring Hub India
+  </span>
+
+  {/* Desktop brand name (still visible in sidebar header/footer) */}
+  <span className="text-lg font-semibold text-blue-800 hidden md:block text-center -mt-2">
+    Spring Hub India
+  </span>
+</div>
+
+
 
           {/* ✅ Sidebar Items */}
-          <SidebarContext.Provider value={{ expanded: expanded || mobileOpen }}>
-           <ul className="px-3 flex-1 overflow-y-auto">
-
+          <SidebarContext.Provider value={{ expanded: true }}>
+            <ul className="px-3 flex-1 overflow-y-auto">
               {menuItems.map((item) => (
                 <SidebarItem
                   key={item.text}
@@ -100,106 +95,79 @@ export default function Sidebar() {
             </ul>
           </SidebarContext.Provider>
 
-          {/* ✅ Footer Section */}
-          <div
-            className={`border-t p-4 flex flex-col items-center space-y-4 transition-all duration-300 ${
-              expanded || mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            {/* ✅ Footer Logo + Brand Info */}
-            <div className="flex items-center space-x-3">
-              <img src={logo} alt="Footer Logo" className="w-12 h-12 rounded-md" />
-              <div className="leading-5">
-                <h4 className="font-semibold text-blue-800">Spring Hub India</h4>
-                <p className="text-gray-600 text-sm mb-2">
+{/* ✅ Footer Section */}
+<div className="border-t p-4 flex flex-col items-center space-y-4">
+  {/* ✅ Footer Logo + Brand Info */}
+  <div className="flex flex-col items-center">
+    <img src={logo} alt="Footer Logo" className="w-11 h-11 rounded-md mb-2" />
+    <div className="leading-5 text-center">
+      <h4 className="font-semibold text-blue-800 -mt-1 text-lg">Spring Hub India</h4>
+      <p className="text-gray-600 text-mm mb-2">
+        <a
+          href="mailto:info@springhubindia.com"
+          className="text-blue-700 hover:text-orange-500 transition"
+        >
+          info@springhubindia.com
+        </a>
+      </p>
+    </div>
+  </div>
 
-            <a
-              href="mailto:info@springhubindia.com"
-              className="text-blue-700 hover:text-orange-500 transition"
-            >
-              info@springhubindia.com
-            </a>
-          </p>
-              </div>
-            </div>
+{/* ✅ Social Media Icons */}
+<div className="flex justify-center items-center space-x-4">
+  <a
+    href="https://facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:text-orange-500 transform transition duration-200 hover:scale-110"
+  >
+    <FaFacebookF size={20} />
+  </a>
+  <a
+    href="https://twitter.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-400 hover:text-orange-500 transform transition duration-200 hover:scale-110"
+  >
+    <FaXTwitter size={20} />
+  </a>
+  <a
+    href="https://instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-pink-500 hover:text-orange-500 transform transition duration-200 hover:scale-110"
+  >
+    <FaInstagram size={20} />
+  </a>
+  <a
+    href="https://youtube.com"
+    target="_blank"
+    rel="noreferrer"
+    className="text-red-600 hover:text-orange-500 transform transition duration-200 hover:scale-110"
+  >
+    <FaYoutube size={20} />
+  </a>
+</div>
 
-            {/* ✅ Social Media Icons */}
-            <div className="flex justify-center items-center space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-orange-500 transition-colors"
-              >
-                <FaFacebookF size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-orange-500 transition-colors"
-              >
-                <FaXTwitter  size={20} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink-500 hover:text-orange-500 transition-colors"
-              >
-                <FaInstagram size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-700 hover:text-orange-500 transition-colors"
-              >
-                <FaLinkedinIn size={20} />
-              </a>
-            </div>
-          </div>
+</div>
+
         </nav>
       </aside>
 
-     <div
-  className={`
-    transition-[margin] duration-300 ease-in-out
-    ${expanded ? "md:ml-64" : "md:ml-20"}
-    ml-0
-    flex flex-col min-h-screen
-  `}
-   >
-  <Header />
-  <div className="flex-1 p-6">
-    <Outlet />
-  </div>
-  <Footer />
-</div>
-
-
-
-
-      {/* ✅ Desktop Collapse Button (Outside Sidebar) */}
-<button
-  onClick={() => setExpanded((curr) => !curr)}
-  className={`
-    hidden md:flex items-center justify-center
-    fixed top-6 transition-all duration-300 z-50
-    w-12 h-12 rounded-md
-    ${expanded ? "left-64 bg-blue-100 -translate-y-2" : "left-20 bg-transparent -translate-y-3"}
-  `}
->
-  {expanded ? (
-    <ChevronFirst size={36} className="text-blue-600" />
-  ) : (
-    <ChevronLast size={36} className="text-orange-500" />
-  )}
-</button>
-
-
-
-
+      {/* ✅ Main Content */}
+      <div
+        className={`
+          transition-[margin] duration-300 ease-in-out
+          md:ml-64 ml-0
+          flex flex-col min-h-screen
+        `}
+      >
+        <Header />
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
+        <Footer />
+      </div>
 
       {/* ✅ Mobile Overlay */}
       {mobileOpen && (
@@ -224,7 +192,7 @@ function SidebarItem({ icon, text, path, active, onClick }) {
       const rect = itemRef.current.getBoundingClientRect();
       setTooltipPosition({
         top: rect.top + rect.height / 2,
-        left: rect.right + 12 // gap from sidebar
+        left: rect.right + 12
       });
       setShowTooltip(true);
     }
@@ -236,15 +204,14 @@ function SidebarItem({ icon, text, path, active, onClick }) {
 
   return (
     <>
-                <Link
-            to={path}
-            onClick={() => {
-              onClick(); 
-              setShowTooltip(false);  
-              window.scrollTo({ top: 0, behavior: "smooth" });         
-            }}
-          >
-
+      <Link
+        to={path}
+        onClick={() => {
+          onClick();
+          setShowTooltip(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
         <li
           ref={itemRef}
           onMouseEnter={handleMouseEnter}
@@ -254,7 +221,7 @@ function SidebarItem({ icon, text, path, active, onClick }) {
             h-12
             font-medium rounded-md cursor-pointer
             transition-all group
-            ${expanded ? "justify-start px-3" : "justify-center"}
+            justify-start px-3
             ${active ? "bg-blue-100 text-blue-700" : "hover:bg-orange-50 text-gray-700"}
           `}
         >
@@ -263,18 +230,12 @@ function SidebarItem({ icon, text, path, active, onClick }) {
             {icon}
           </span>
 
-          {/* ✅ Text only when expanded */}
-          <span
-            className={`overflow-hidden transition-all duration-300 ${
-              expanded ? "w-52 ml-3 opacity-100" : "w-0 opacity-0 ml-0"
-            }`}
-          >
-            {text}
-          </span>
+          {/* ✅ Text (always on desktop) */}
+          <span className="ml-3">{text}</span>
         </li>
       </Link>
 
-      {/* ✅ Tooltip OUTSIDE Sidebar */}
+      {/* ✅ Tooltip for collapsed (mobile) */}
       {!expanded && showTooltip && (
         <div
           className="fixed z-[9999] px-3 py-1 rounded-lg bg-blue-100 text-blue-800 text-sm font-medium
