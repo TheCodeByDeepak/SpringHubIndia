@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
               />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/springhubindia"
               target="_blank"
               rel="noopener noreferrer"
               className="group transform transition duration-200 hover:scale-110"
@@ -37,7 +37,7 @@ export default function Header() {
               />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/springhubindia"
               target="_blank"
               rel="noopener noreferrer"
               className="group transform transition duration-200 hover:scale-110"
@@ -48,16 +48,17 @@ export default function Header() {
               />
             </a>
             <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group transform transition duration-200 hover:scale-110"
-            >
-              <FaYoutube
-                size={22}
-                className="text-[#FF0000] group-hover:text-orange-500 transition-colors"
-              />
-            </a>
+  href="https://www.linkedin.com/in/spring-hub-india-9924b537b/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group transform transition duration-200 hover:scale-110"
+>
+  <FaLinkedin
+    size={22}
+    className="text-[#0A66C2] group-hover:text-orange-500 transition-colors"
+  />
+</a>
+
           </div>
 
           {/* Email Below */}

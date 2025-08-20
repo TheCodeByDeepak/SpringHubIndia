@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Phone, Mail, Clock, ChevronDown, ChevronUp } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import emailjs from "emailjs-com";
+import { useRef } from "react";
 import headerBg from "../assets/b9.jpg";
 // Left side images
 import leftImg1 from "../assets/h6.png";
@@ -15,6 +17,7 @@ import rightImg3 from "../assets/h2.png";
 export default function GetAQuote() {
   const [openFAQ, setOpenFAQ] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const form = useRef();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
@@ -42,18 +45,36 @@ export default function GetAQuote() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-    setErrors({});
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
-    setFormData({ name: "", email: "", service: "", details: "" });
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const validationErrors = validate();
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
+
+  setErrors({});
+
+  emailjs
+    .sendForm(
+      "service_y7yzey7",   
+      "template_l08x2qr",  
+      form.current,
+      "VN_hSZ95Er5hiz0ap" 
+    )
+    .then(
+      () => {
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
+        setFormData({ name: "", email: "", company: "", city: "", service: "", details: "" });
+      },
+      (error) => {
+        console.error("FAILED...", error.text);
+        alert("Something went wrong. Please try again.");
+      }
+    );
+};
+
 
   const faqs = [
     {
@@ -254,7 +275,7 @@ export default function GetAQuote() {
   <h3 className="text-2xl font-bold text-blue-800 mb-4">
     Request a Quote
   </h3>
-  <form className="space-y-4" onSubmit={handleSubmit}>
+  <form ref={form} className="space-y-4" onSubmit={handleSubmit}>
     {/* Name */}
     <input
       type="text"

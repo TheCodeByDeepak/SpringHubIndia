@@ -13,7 +13,7 @@ import {
 import { Outlet } from "react-router-dom";
 import { useContext, useRef, createContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from "../assets/logo.png";
 import Header from "./Header";
@@ -65,21 +65,22 @@ export default function Sidebar() {
           {/* ✅ Logo Section */}
 <div className="p-4 flex flex-col items-center">
   {/* Mobile: logo + name side by side */}
-  <div className="flex items-center justify-center md:hidden">
-    <Link 
-      to="/" 
-      onClick={() => {
-        setMobileOpen(false); 
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-      className="flex items-center"
-    >
-      <img src={logo} className="w-11 h-11" alt="Logo" />
-      <span className="ml-2 text-base font-semibold text-blue-800">
-        SPRING HUB INDIA
-      </span>
-    </Link>
-  </div>
+  <div className="flex flex-col items-center justify-center md:hidden">
+  <Link 
+    to="/" 
+    onClick={() => {
+      setMobileOpen(false); 
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }}
+    className="flex flex-col items-center"
+  >
+    <img src={logo} className="w-11 h-11 mb-2" alt="Logo" />
+    <span className="text-base font-semibold text-blue-800 text-center -mt-1">
+      SPRING HUB INDIA
+    </span>
+  </Link>
+</div>
+
 
   {/* Desktop: logo above name */}
   <div className="hidden md:flex flex-col items-center">
@@ -89,7 +90,7 @@ export default function Sidebar() {
       className="flex flex-col items-center"
     >
       <img src={logo} className="w-11 h-11 mb-2" alt="Logo" />
-      <span className="text-lg font-semibold text-blue-800 text-center">
+      <span className="text-lg font-semibold text-blue-800 text-center -mt-1">
         SPRING HUB INDIA
       </span>
     </Link>
@@ -152,7 +153,7 @@ export default function Sidebar() {
     <FaFacebookF size={20} />
   </a>
   <a
-    href="https://twitter.com"
+    href="https://x.com/springhubindia"
     target="_blank"
     rel="noopener noreferrer"
     className="text-blue-400 hover:text-orange-500 transform transition duration-200 hover:scale-110"
@@ -160,7 +161,7 @@ export default function Sidebar() {
     <FaXTwitter size={20} />
   </a>
   <a
-    href="https://instagram.com"
+    href="https://www.instagram.com/springhubindia"
     target="_blank"
     rel="noopener noreferrer"
     className="text-pink-500 hover:text-orange-500 transform transition duration-200 hover:scale-110"
@@ -168,13 +169,14 @@ export default function Sidebar() {
     <FaInstagram size={20} />
   </a>
   <a
-    href="https://youtube.com"
-    target="_blank"
-    rel="noreferrer"
-    className="text-red-600 hover:text-orange-500 transform transition duration-200 hover:scale-110"
-  >
-    <FaYoutube size={20} />
-  </a>
+  href="https://www.linkedin.com/in/spring-hub-india-9924b537b/"
+  target="_blank"
+  rel="noreferrer"
+  className="text-blue-600 hover:text-orange-500 transform transition duration-200 hover:scale-110"
+>
+  <FaLinkedin size={20} />
+</a>
+
 </div>
 
 </div>

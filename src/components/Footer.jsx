@@ -1,7 +1,7 @@
 import React from "react";
 import logoTransparent from "../assets/logo-transparent.png";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
@@ -117,7 +117,7 @@ export default function Footer() {
               <FaFacebookF size={25} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/springhubindia"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-300 hover:text-orange-400 hover:scale-125 transition-transform duration-300"
@@ -125,7 +125,7 @@ export default function Footer() {
               <FaXTwitter size={25} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/springhubindia"
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-400 hover:text-orange-400 hover:scale-125 transition-transform duration-300"
@@ -133,13 +133,14 @@ export default function Footer() {
               <FaInstagram size={25} />
             </a>
             <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-red-600 hover:text-orange-400 hover:scale-125 transition-transform duration-300"
-            >
-              <FaYoutube size={25} />
-            </a>
+  href="https://www.linkedin.com/in/spring-hub-india-9924b537b/"
+  target="_blank"
+  rel="noreferrer"
+  className="text-[#0A66C2] hover:text-orange-400 hover:scale-125 transition-transform duration-300"
+>
+  <FaLinkedin size={25} />
+</a>
+
           </div>
         </div>
       </div>

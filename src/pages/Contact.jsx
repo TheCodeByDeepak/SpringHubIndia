@@ -6,6 +6,7 @@ import {
   Clock,
   User,
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import headerBg from "../assets/b7.jpg";
 // Left side images
 import leftImg1 from "../assets/h10.png";
@@ -23,24 +24,33 @@ const ContactUs = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setStatusMessage(null);
+  e.preventDefault();
+  setIsLoading(true);
+  setStatusMessage(null);
 
-    // Simulate a successful form submission
-    setTimeout(() => {
-      setStatusMessage({
-        type: "success",
-        text: "Message sent successfully!",
-      });
-      form.current.reset();
-      setIsLoading(false);
+  emailjs
+    .sendForm(
+      "service_y7yzey7",      
+      "template_hsenv7o",    
+      form.current,
+      "VN_hSZ95Er5hiz0ap"      
+    )
+    .then(
+      () => {
+        setStatusMessage({ type: "success", text: "Message sent successfully!" });
+        form.current.reset();
+        setIsLoading(false);
 
-      setTimeout(() => {
-        setStatusMessage(null);
-      }, 3000);
-    }, 1500);
-  };
+        setTimeout(() => setStatusMessage(null), 3000);
+      },
+      (error) => {
+        console.error("EmailJS Error:", error.text);
+        setStatusMessage({ type: "error", text: "Failed to send message. Try again later." });
+        setIsLoading(false);
+      }
+    );
+};
+
   
 
   return (
