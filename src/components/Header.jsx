@@ -15,7 +15,7 @@ export default function Header() {
           {/* Social Icons */}
           <div className="flex space-x-3">
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/profile.php?id=61579307682312"
               target="_blank"
               rel="noopener noreferrer"
               className="group transform transition duration-200 hover:scale-110"

@@ -109,7 +109,7 @@ export default function Footer() {
           </h5>
           <div className="flex justify-center md:justify-start space-x-6">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61579307682312"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-orange-400 hover:scale-125 transition-transform duration-300"

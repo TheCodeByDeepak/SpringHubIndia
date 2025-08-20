@@ -145,7 +145,7 @@ export default function Sidebar() {
 {/* ✅ Social Media Icons */}
 <div className="flex justify-center items-center space-x-4">
   <a
-    href="https://facebook.com"
+    href="https://www.facebook.com/profile.php?id=61579307682312"
     target="_blank"
     rel="noopener noreferrer"
     className="text-blue-600 hover:text-orange-500 transform transition duration-200 hover:scale-110"
